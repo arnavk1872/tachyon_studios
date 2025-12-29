@@ -44,6 +44,14 @@ export async function initDatabase() {
         )
       `)
       
+      await client.query(`
+        CREATE TABLE IF NOT EXISTS waitlist (
+          id SERIAL PRIMARY KEY,
+          email VARCHAR(255) NOT NULL UNIQUE,
+          created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+        )
+      `)
+      
       const result = await client.query(`
         SELECT column_name 
         FROM information_schema.columns 
@@ -62,7 +70,7 @@ export async function initDatabase() {
         await client.query(`ALTER TABLE tachyon_queries DROP COLUMN IF EXISTS budget`)
       }
       
-      console.log('Database table tachyon_queries initialized successfully')
+      console.log('Database tables initialized successfully')
     } catch (error) {
       console.error('Error initializing database:', error)
       initPromise = null
@@ -102,6 +110,29 @@ export async function saveQuote(data: {
     return result.rows[0].id
   } catch (error) {
     console.error('Error saving quote to database:', error)
+    throw error
+  }
+}
+
+export async function saveWaitlistEmail(email: string) {
+  const client = getPool()
+  
+  try {
+    const result = await client.query(
+      `INSERT INTO waitlist (email)
+       VALUES ($1)
+       ON CONFLICT (email) DO NOTHING
+       RETURNING id`,
+      [email]
+    )
+    
+    if (result.rows.length === 0) {
+      return null
+    }
+    
+    return result.rows[0].id
+  } catch (error) {
+    console.error('Error saving waitlist email to database:', error)
     throw error
   }
 }

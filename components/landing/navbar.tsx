@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { usePathname, useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { QuoteDialog } from "./quote-dialog"
 import { Menu, X } from "lucide-react"
@@ -10,6 +11,8 @@ import { Menu, X } from "lucide-react"
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const pathname = usePathname()
+  const router = useRouter()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,17 +24,27 @@ export function Navbar() {
 
   const navLinks = [
     { href: "#services", label: "Services" },
-    { href: "#use-cases", label: "Use Cases" },
+    { href: "/product", label: "Product" },
     { href: "#pricing", label: "Pricing" },
-    { href: "#security", label: "Security" },
     { href: "#faq", label: "FAQ" },
   ]
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault()
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" })
+    if (href.startsWith("#")) {
+      e.preventDefault()
+      const isHomePage = pathname === "/"
+      
+      if (isHomePage) {
+        const element = document.querySelector(href)
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" })
+          setMobileOpen(false)
+        }
+      } else {
+        router.push(`/${href}`)
+        setMobileOpen(false)
+      }
+    } else {
       setMobileOpen(false)
     }
   }

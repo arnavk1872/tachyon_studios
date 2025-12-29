@@ -9,7 +9,7 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: "Tachyon Studio — Private AI Copilots & RAG Systems",
+  title: "Tachyon Studios",
   description:
     "Secure, citation-backed internal AI copilots powered by RAG. Enterprise RAG chatbots, custom LLM fine-tuning, AI agents, and deployment services. Built with permissions, SSO, and on-prem/VPC options.",
   keywords: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     "on-prem AI",
   ],
   openGraph: {
-    title: "Tachyon Studio — Private AI Copilots & RAG Systems",
+    title: "Tachyon Studios",
     description:
       "Secure, citation-backed internal AI copilots powered by RAG. Enterprise solutions with permissions, SSO, and deployment options.",
     type: "website",
