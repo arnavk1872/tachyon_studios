@@ -23,8 +23,8 @@ export function Navbar() {
   }, [])
 
   const navLinks = [
-    { href: "#services", label: "Services" },
-    { href: "/product", label: "Product" },
+    { href: "#products", label: "Products" },
+    { href: "/product", label: "Klyro" },
     { href: "#pricing", label: "Pricing" },
     { href: "#faq", label: "FAQ" },
   ]
@@ -33,7 +33,7 @@ export function Navbar() {
     if (href.startsWith("#")) {
       e.preventDefault()
       const isHomePage = pathname === "/"
-      
+
       if (isHomePage) {
         const element = document.querySelector(href)
         if (element) {
@@ -52,8 +52,8 @@ export function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all border-b ${
-        scrolled 
-          ? "bg-background/95 backdrop-blur-md shadow-sm border-border/50" 
+        scrolled
+          ? "bg-background/95 backdrop-blur-md shadow-sm border-border/50"
           : "bg-background/80 backdrop-blur-sm border-transparent"
       }`}
     >
@@ -85,7 +85,11 @@ export function Navbar() {
               </Link>
             ))}
             <QuoteDialog
-              trigger={<Button className="shadow-sm hover:shadow-md transition-shadow">Get a quotation</Button>}
+              trigger={
+                <Button className="shadow-sm hover:shadow-md transition-shadow">
+                  Get a quotation
+                </Button>
+              }
             />
           </div>
 
@@ -114,13 +118,10 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <QuoteDialog
-              trigger={<Button className="w-full">Get a quotation</Button>}
-            />
+            <QuoteDialog trigger={<Button className="w-full">Get a quotation</Button>} />
           </div>
         </div>
       )}
     </nav>
   )
 }
-

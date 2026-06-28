@@ -7,29 +7,39 @@ import {
 
 const faqs = [
   {
-    question: "Do you fine-tune models or use RAG?",
+    question: "What is Klyro?",
     answer:
-      "We primarily use RAG (Retrieval-Augmented Generation) for most use cases because it's faster to deploy, easier to update with new information, and provides citations. We offer fine-tuning when you need consistent outputs for specialized tasks or when RAG isn't sufficient. The choice depends on your specific requirements.",
+      "Klyro is an open, self-hostable AI chatbot platform. Connect your LLM provider, upload knowledge sources, and deploy a branded chatbot widget—or run the full platform on your own infrastructure.",
   },
   {
-    question: "What tools do you integrate with?",
+    question: "Which LLM providers does Klyro support?",
     answer:
-      "We integrate with common knowledge sources including Google Drive, Confluence, Notion, Jira, Slack, Microsoft Teams, databases (PostgreSQL, MongoDB), and more. We can also build custom integrations for proprietary systems. All integrations support authentication and access control.",
+      "Klyro supports multiple providers including OpenAI, OpenRouter, Groq, and more. You bring your own API keys and can switch providers without rebuilding your setup.",
   },
   {
-    question: "How long does it take?",
+    question: "Do I need to self-host Klyro?",
     answer:
-      "A typical timeline: Discovery Sprint (1-2 weeks) → Pilot (2-4 weeks) → Production (4-8 weeks). The exact timeline depends on data complexity, integration requirements, and deployment preferences. We can provide a detailed timeline after the discovery phase.",
+      "Self-hosting is a core feature, not a requirement. You can deploy Klyro on your own servers for full data control, or use it in a setup that fits your team's infrastructure and compliance needs.",
   },
   {
-    question: "Can this run on-prem?",
+    question: "What is AI for Humans?",
     answer:
-      "Yes. We support on-premise deployments, VPC deployments, and cloud SaaS. For on-prem, we can containerize the system for deployment in your infrastructure. All deployment options include the same security and access control features.",
+      "AI for Humans is a comprehensive ebook that explains how AI works, how to use it effectively in business, and what to expect as the technology evolves. It's written for non-technical and semi-technical readers who want clarity without jargon.",
   },
   {
-    question: "How do you prevent data leaks?",
+    question: "How do I get a custom quotation?",
     answer:
-      "Multiple layers: (1) Access control ensures users only see authorized data, (2) Audit logs track all queries and responses, (3) Citations show exactly which sources were used, (4) PII filtering can detect and redact sensitive information, (5) We don't train on your data by default, and (6) All deployments can be isolated in your own infrastructure.",
+      "Click \"Get a quotation\" anywhere on the site and tell us about your project—whether you need a custom AI deployment, help setting up Klyro, or something entirely bespoke. We'll review your requirements and send a tailored quote.",
+  },
+  {
+    question: "How do I purchase a product?",
+    answer:
+      "Both Klyro and AI for Humans are available on Gumroad. Click any purchase button on this site to go directly to checkout. You'll get instant access after payment.",
+  },
+  {
+    question: "Can I use Klyro for client projects?",
+    answer:
+      "Yes. Klyro is designed for agencies and consultancies that need white-label AI assistants for multiple clients. Customize branding per deployment and keep each client's data isolated on your infrastructure.",
   },
 ]
 
@@ -42,13 +52,13 @@ export function FAQ() {
             Frequently Asked Questions
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Common questions about our services and approach
+            Questions about our products, custom work, and how to get started
           </p>
         </div>
         <Accordion type="single" collapsible className="w-full space-y-2">
           {faqs.map((faq, idx) => (
-            <AccordionItem 
-              key={idx} 
+            <AccordionItem
+              key={idx}
               value={`item-${idx}`}
               className="border-2 rounded-lg px-4 hover:border-primary/30 transition-colors"
             >
@@ -65,4 +75,3 @@ export function FAQ() {
     </section>
   )
 }
-

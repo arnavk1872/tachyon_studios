@@ -1,36 +1,36 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { GraduationCap, HelpCircle, Headphones, TrendingUp, Shield } from "lucide-react"
+import { Building2, Users, ShoppingBag, Headphones, Code2 } from "lucide-react"
 
 const useCases = [
   {
-    icon: GraduationCap,
-    title: "Onboarding & Training Assistant",
+    icon: Building2,
+    title: "Agencies & Consultancies",
     description:
-      "Help new employees get up to speed quickly with company policies, procedures, and tools.",
+      "Deploy white-label AI assistants for each client without rebuilding from scratch. Full branding control, your infrastructure.",
   },
   {
-    icon: HelpCircle,
-    title: "Internal IT / SOP Helpdesk",
+    icon: Users,
+    title: "Startups & SaaS Teams",
     description:
-      "Instant answers to IT questions and standard operating procedures, reducing support ticket volume.",
+      "Add an AI support or onboarding chatbot to your product in days—not months. Embed the widget and connect your docs.",
+  },
+  {
+    icon: ShoppingBag,
+    title: "E-commerce & Retail",
+    description:
+      "Answer product questions, guide purchases, and reduce support load with a knowledge-backed chatbot trained on your catalog.",
   },
   {
     icon: Headphones,
-    title: "Customer Support Agent Assist",
+    title: "Customer Support",
     description:
-      "Equip support teams with instant access to product knowledge, troubleshooting guides, and policies.",
+      "Deflect repetitive tickets with a RAG-powered assistant that cites your help docs, policies, and FAQs accurately.",
   },
   {
-    icon: TrendingUp,
-    title: "Sales Enablement Knowledge Base",
+    icon: Code2,
+    title: "Developer & IT Teams",
     description:
-      "Quick access to product specs, competitive intelligence, pricing, and sales playbooks.",
-  },
-  {
-    icon: Shield,
-    title: "Compliance & Policy Q/A",
-    description:
-      "Ensure accurate, citation-backed answers to compliance questions with full audit trails.",
+      "Self-host on your stack, swap LLM providers freely, and keep sensitive data off third-party SaaS platforms.",
   },
 ]
 
@@ -41,21 +41,17 @@ export function UseCases() {
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-20">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-            Use Cases
+            Built for Klyro
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Proven applications across industries
+            Who uses a self-hosted, branded AI chatbot platform
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {useCases.map((useCase, idx) => {
+          {useCases.map((useCase) => {
             const Icon = useCase.icon
-            const isLarge = idx === 0 || idx === 2
             return (
-              <div
-                key={useCase.title}
-                className={`group relative ${isLarge ? "md:col-span-1" : ""}`}
-              >
+              <div key={useCase.title} className="group relative">
                 <Card className="h-full relative border-2 border-border/50 bg-background/80 backdrop-blur-sm transition-all duration-300 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/5 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <CardHeader className="relative pb-4">
@@ -88,4 +84,3 @@ export function UseCases() {
     </section>
   )
 }
-

@@ -1,6 +1,8 @@
 import { QuoteDialog } from "./quote-dialog"
 import { Button } from "@/components/ui/button"
 import { Linkedin } from "lucide-react"
+import Link from "next/link"
+import { EBOOK_URL } from "@/lib/products"
 
 const XIcon = ({ className }: { className?: string }) => (
   <svg
@@ -23,12 +25,41 @@ export function Footer() {
               Tachyon Studio
             </h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Private AI copilots for your company knowledge.
+              AI products you can use today, plus custom solutions built for your team. Explore Klyro and AI for Humans—or get a quotation for something tailored.
             </p>
           </div>
           <div className="flex flex-col">
-            <h3 className="font-semibold text-lg mb-4">Connect</h3>
-            <div className="flex items-center gap-4 mb-4">
+            <h3 className="font-semibold text-lg mb-4">Products</h3>
+            <div className="space-y-3">
+              <Link
+                href="/product"
+                className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Klyro — AI Chatbot Platform
+              </Link>
+              <a
+                href={EBOOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                AI for Humans — Ebook
+              </a>
+            </div>
+          </div>
+          <div className="flex flex-col">
+            <h3 className="font-semibold text-lg mb-4">Get Started</h3>
+            <p className="text-sm text-muted-foreground mb-4">
+              Tell us about your project and we&apos;ll send a custom quote.
+            </p>
+            <QuoteDialog
+              trigger={
+                <Button variant="outline" className="border-2 w-fit">
+                  Get a quotation
+                </Button>
+              }
+            />
+            <div className="flex items-center gap-4 mt-6">
               <a
                 href="https://linkedin.com/company/tachyon-studios"
                 target="_blank"
@@ -48,13 +79,6 @@ export function Footer() {
                 <XIcon className="h-5 w-5" />
               </a>
             </div>
-            <p className="text-sm text-muted-foreground">
-              India / Remote
-            </p>
-          </div>
-          <div className="flex flex-col">
-            <h3 className="font-semibold text-lg mb-4">Get Started</h3>
-            <QuoteDialog trigger={<Button variant="outline" className="border-2 w-fit">Get a quotation</Button>} />
           </div>
         </div>
         <div className="border-t pt-8 text-center text-sm text-muted-foreground">
@@ -64,4 +88,3 @@ export function Footer() {
     </footer>
   )
 }
-

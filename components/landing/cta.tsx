@@ -10,18 +10,23 @@ export function CTA() {
           <span>Get Started</span>
         </div>
         <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-balance">
-          Ready to deploy a{" "}
+          Need something{" "}
           <span className="bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent">
-            private copilot
+            custom
           </span>
           ?
         </h2>
         <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-          Get a custom quote for your organization
+          Browse our products for a quick start, or tell us what you&apos;re building—we&apos;ll send you a tailored quotation.
         </p>
-        <QuoteDialog trigger={<Button size="lg" className="shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all">Get a quotation</Button>} />
+        <QuoteDialog
+          trigger={
+            <Button size="lg" className="shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all">
+              Get a quotation
+            </Button>
+          }
+        />
       </div>
     </section>
   )
 }
-
